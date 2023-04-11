@@ -1,15 +1,39 @@
 #!/usr/bin/python3
-import random
-import sys
-from time import sleep
-import datetime
+"""stats module
+"""
+from sys import stdin
 
-for i in range(10000):
-    sleep(random.random())
-    sys.stdout.write("{:d}.{:d}.{:d}.{:d} - [{}] \"GET /projects/260 HTTP/1.1\" {} {}\n".format(
-        random.randint(1, 255), random.randint(1, 255), random.randint(1, 255), random.randint(1, 255),
-        datetime.datetime.now(),
-        random.choice([200, 301, 400, 401, 403, 404, 405, 500]),
-        random.randint(1, 1024)
-    ))
-    sys.stdout.flush()
+
+codes = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
+size = 0
+
+
+def print_info():
+    """print_info method print needed info
+    Args:
+        codes (dict): code status
+        size (int): size of files
+    """
+    print("File size: {}".format(size))
+    for key, val in sorted(codes.items()):
+        if val > 0:
+            print("{}: {}".format(key, val))
+
+
+if __name__ == '__main__':
+    try:
+        for i, line in enumerate(stdin, 1):
+            try:
+                info = line.split()
+                size += int(info[-1])
+                if info[-2] in codes.keys():
+                    codes[info[-2]] += 1
+            except Exception:
+                pass
+            if not i % 10:
+                print_info()
+    except KeyboardInterrupt:
+        print_info()
+        raise
+    print_info()

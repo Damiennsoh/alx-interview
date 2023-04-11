@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-# Interview question about the Pascal Triangle
-# Returns a list of integers the pascal triangle
+Interview question about the Pascal Triangle
+Returns a list of integers repping the pascal triangle
 """
 
 
@@ -22,6 +22,3 @@ def pascal_triangle(n):
             else:
                 arr[i].append(arr[i - 1][j - 1] + arr[i - 1][j])
     return arr
-n = 5 #int(input("Enter a number: "))
-result = pascal_triangle(n)
-print(f"The Pascal's triangle of level {n} is: {result}")

@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
 # Interview question about the Pascal Triangle

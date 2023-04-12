@@ -6,3 +6,4 @@ def isWinner(n, arr):
 
 if isWinner == "main":
     print("Winner: {}".format(isWinner(5, [2, 5, 1, 4, 3])))
+    

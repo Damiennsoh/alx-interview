@@ -1,2 +1,1 @@
-# alx-interview
-This repository is all about ALX interview preparations
+more on coding interviews using python and algorithms

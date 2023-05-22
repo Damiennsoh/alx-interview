@@ -1,1 +1,1 @@
-all about pascal triangle
+more interviev questions
